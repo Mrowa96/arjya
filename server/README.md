@@ -6,6 +6,10 @@ Docs are available under `/docs` endpoint.
 
 For now they have to be run in sequence manually via command `node --env-file=.env ./src/infrastructure/migrations/<migration>`
 
+## How to run scripts?
+
+Just run `node --env-file=.env ./scripts/<script>`
+
 ## Additional docs
 
 - https://github.com/jalik/meteor-jalik-ufs/blob/master/ufs-server.js#L342

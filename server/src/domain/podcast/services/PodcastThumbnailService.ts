@@ -158,6 +158,10 @@ export class PodcastThumbnailService {
         }
       }
 
+      if (!successfulItems.length) {
+        throw new Error('No thumbnails could have been saved.');
+      }
+
       return {
         isSuccess: true,
         data: {

@@ -6,6 +6,8 @@ import { PodcastThumbnailService } from '../src/domain/podcast/services/PodcastT
 import { getDbInstance } from '../src/infrastructure/db.ts';
 import { tryCatch } from '../src/infrastructure/tryCatch.ts';
 
+console.info('Refreshing podcasts thumbnails...');
+
 const podcastsSchema = v.array(
   v.pipe(
     v.object({
@@ -37,7 +39,10 @@ const db = getDbInstance();
 const rawPodcasts = db.prepare(`SELECT DISTINCT id, image_url FROM podcast;`).all();
 const podcasts = v.parse(podcastsSchema, rawPodcasts);
 
-const podcastThumbnailService = new PodcastThumbnailService();
+const podcastThumbnailService = new PodcastThumbnailService({
+  enableDebugLogs: true,
+  overrideExistingThumbnail: true,
+});
 
 const result = await podcastThumbnailService.savePodcastsThumbnail(podcasts);
 
@@ -70,3 +75,5 @@ const transaction = db.transaction(() => {
 });
 
 transaction();
+
+console.info('Thumbnails refresh completed');

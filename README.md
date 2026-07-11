@@ -82,6 +82,7 @@ services:
 ```
 
 3. Run `docker compose up -d`
+4. Run all migrations by entering docker container and running them in sequence
 
 ## Develop it locally
 
