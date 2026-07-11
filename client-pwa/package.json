@@ -1,7 +1,7 @@
 {
   "name": "arjya-client-pwa",
   "private": true,
-  "version": "0.7.0",
+  "version": "0.1.0",
   "type": "module",
   "sideEffects": false,
   "license": "AGPL-3.0-only",
