@@ -51,7 +51,7 @@ export default function PodcastEpisodeDetailPage() {
         episodeId: episode.id,
         elapsedTime,
       });
-    }, false);
+    });
 
     if (error) {
       console.error('Unable to update episode stream completion.', error);

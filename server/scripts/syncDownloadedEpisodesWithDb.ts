@@ -1,17 +1,17 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-import { getDbInstance } from '../src/infrastructure/db.ts';
+import { backupDb, getDbInstance } from '../src/infrastructure/db.ts';
 import { tryCatch, tryCatchSync } from '../src/infrastructure/tryCatch.ts';
 
 console.info('Syncing files on disk with is_downloaded column in db');
 
-const [files, filesError] = await tryCatch(
-  () =>
-    fs.readdir(path.join(process.cwd(), './data'), {
-      recursive: true,
-    }),
-  false,
+process.loadEnvFile();
+
+const [files, filesError] = await tryCatch(() =>
+  fs.readdir(path.join(process.cwd(), './data'), {
+    recursive: true,
+  }),
 );
 
 if (filesError) {
@@ -42,10 +42,7 @@ if (episodesIdsError) {
 
 const db = getDbInstance();
 
-const [, dbBackupError] = await tryCatch(
-  () => db.backup(path.join(process.cwd(), `./db/db-backup-${Date.now()}.db`)),
-  false,
-);
+const [, dbBackupError] = await tryCatch(backupDb);
 
 if (dbBackupError) {
   console.error('Unable to create db backup..', dbBackupError);

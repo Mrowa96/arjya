@@ -8,6 +8,8 @@ import { tryCatch } from '../src/infrastructure/tryCatch.ts';
 
 console.info('Refreshing podcasts thumbnails...');
 
+process.loadEnvFile();
+
 const podcastsSchema = v.array(
   v.pipe(
     v.object({
@@ -39,17 +41,20 @@ const db = getDbInstance();
 const rawPodcasts = db.prepare(`SELECT DISTINCT id, image_url FROM podcast;`).all();
 const podcasts = v.parse(podcastsSchema, rawPodcasts);
 
-const podcastThumbnailService = new PodcastThumbnailService({
-  enableDebugLogs: true,
-  overrideExistingThumbnail: true,
-});
+if (!podcasts.length) {
+  console.warn('No podcasts found.');
+
+  process.exit(2);
+}
+
+const podcastThumbnailService = new PodcastThumbnailService();
 
 const result = await podcastThumbnailService.savePodcastsThumbnail(podcasts);
 
 if (!result.isSuccess) {
   console.error(result.error);
 
-  process.exit(2);
+  process.exit(3);
 }
 
 const transaction = db.transaction(() => {

@@ -47,7 +47,7 @@ export class EpisodeDownloaderService {
   }
 
   async #getEpisodeFileStats() {
-    const [stats] = await tryCatch(() => stat(this.#episodeFilePath), false);
+    const [stats] = await tryCatch(() => stat(this.#episodeFilePath));
 
     return stats;
   }

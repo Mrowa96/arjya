@@ -4,11 +4,22 @@ Docs are available under `/docs` endpoint.
 
 ## How to run migrations?
 
-For now they have to be run in sequence manually via command `node --env-file=.env ./src/infrastructure/migrations/<migration>`
+Run `node ./scripts/migrate.ts ACTION [NAME]`
 
-## How to run scripts?
+`ACTION` is either `up` or `down`
 
-Just run `node --env-file=.env ./scripts/<script>`
+`NAME` is optional migration name.
+
+Examples:
+
+- Run all migrations up: `node ./scripts/migrate.ts up`
+- Run all migrations down: `node ./scripts/migrate.ts down`
+- Run single migrations up: `node ./scripts/migrate.ts up xxx_migration_name`
+- Run single migrations down: `node ./scripts/migrate.ts down xxx_migration_name`
+
+## How to run other scripts?
+
+Just run `node ./scripts/<script>`
 
 ## Additional docs
 

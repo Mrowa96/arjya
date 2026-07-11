@@ -118,7 +118,7 @@ export function AudioPlayerProvider({ children, options = defaultOptions, onSour
 
   const updateSource = useCallback(
     async (id: string, data?: unknown, config: UpdateSourceConfig = updateSourceDefaultConfig) => {
-      const [newSource, newSourceError] = await tryCatch(() => onSourceUpdate(id, data), false);
+      const [newSource, newSourceError] = await tryCatch(() => onSourceUpdate(id, data));
 
       if (newSourceError) {
         console.error('Error when calling onSourceUpdate.', newSourceError);

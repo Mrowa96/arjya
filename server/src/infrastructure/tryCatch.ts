@@ -4,7 +4,7 @@ type FailedResult = [null, Error];
 
 export async function tryCatch<T>(
   fn: () => Promise<T>,
-  logError = true,
+  logError = false,
 ): Promise<FailedResult | SuccessfulResult<T>> {
   try {
     return [await fn(), null];
@@ -25,7 +25,7 @@ export async function tryCatch<T>(
   }
 }
 
-export function tryCatchSync<T>(fn: () => T, logError = true): SuccessfulResult<T> | FailedResult {
+export function tryCatchSync<T>(fn: () => T, logError = false): SuccessfulResult<T> | FailedResult {
   try {
     return [fn(), null];
   } catch (error) {

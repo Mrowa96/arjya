@@ -48,7 +48,7 @@ export class EpisodeThumbnailService {
   async #verifyPodcastAssetsDirectoryExistance(podcastId: string) {
     try {
       const podcastAssetsPath = path.join(this.#assetsPath, podcastId);
-      const [stats] = await tryCatch(() => fs.stat(podcastAssetsPath), false);
+      const [stats] = await tryCatch(() => fs.stat(podcastAssetsPath));
 
       if (!stats) {
         this.#enableDebugLogs && console.log(`Podcast assets directory doesn't exist, creating...`);
@@ -73,7 +73,7 @@ export class EpisodeThumbnailService {
         `/assets/${item.podcastId}/${randomThumbnailId}.webp`,
       );
 
-      const [stats] = await tryCatch(() => fs.stat(thumbnailPath), false);
+      const [stats] = await tryCatch(() => fs.stat(thumbnailPath));
 
       if (!stats || !stats.isFile()) {
         this.#enableDebugLogs &&

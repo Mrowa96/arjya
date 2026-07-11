@@ -52,13 +52,11 @@ export function LocalEpisodesProvider({ children }: PropsWithChildren) {
         return newSet;
       };
 
-      const [episodeBlob, episodeBlobError] = await tryCatch(
-        () =>
-          downloadEpisode({
-            episodeId: episode.id,
-            podcastId: episode.podcast.id,
-          }),
-        false,
+      const [episodeBlob, episodeBlobError] = await tryCatch(() =>
+        downloadEpisode({
+          episodeId: episode.id,
+          podcastId: episode.podcast.id,
+        }),
       );
 
       if (episodeBlobError) {
@@ -93,7 +91,7 @@ export function LocalEpisodesProvider({ children }: PropsWithChildren) {
           blob: episodeBlob,
           thumbnail: episodeThumbnailBlob,
         });
-      }, false);
+      });
 
       if (upsertEpisodeToDbError) {
         console.error('Unable to save episode locally.', upsertEpisodeToDbError);
@@ -197,7 +195,7 @@ export function LocalEpisodesProvider({ children }: PropsWithChildren) {
       const episodesDb = await openEpisodesDb();
 
       return getLocalEpisodeFromDb(episodesDb, episodeId);
-    });
+    }, true);
 
     if (localEpisodeFromDbError) {
       return null;
