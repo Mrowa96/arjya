@@ -1,0 +1,17 @@
+@keyframes skeleton-loading {
+  0% {
+    background-color: var(--c-grey);
+  }
+  100% {
+    background-color: var(--c-grey-light);
+  }
+}
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: var(--radius-md);
+
+  &.withDelay {
+    animation-delay: 0.3s;
+  }
+}

@@ -1,0 +1,34 @@
+.checkboxControl {
+  display: flex;
+  flex-flow: column;
+  gap: var(--spacing-xs);
+}
+
+.checkboxInnerControl {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+}
+
+.nativeCheckbox {
+  appearance: none;
+  width: 0px;
+  height: 0px;
+  visibility: hidden;
+  position: absolute;
+
+  &:checked + .checkbox {
+    background: linear-gradient(45deg, var(--c-accent-secondary-bg), var(--c-accent-primary-bg));
+    border-color: var(--c-accent-primary-bg-darker);
+  }
+}
+
+.checkbox {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--c-border);
+  cursor: pointer;
+}

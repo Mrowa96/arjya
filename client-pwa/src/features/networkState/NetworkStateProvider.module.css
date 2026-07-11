@@ -1,0 +1,10 @@
+.content {
+  display: flex;
+  flex-flow: column;
+  gap: var(--spacing-sm);
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}

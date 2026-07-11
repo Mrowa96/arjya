@@ -1,0 +1,106 @@
+.dialogContent {
+  width: 100%;
+}
+
+.addPodcastForm {
+  display: flex;
+  flex-flow: column;
+  gap: var(--spacing-md);
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.foundPodcasts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-block-start: var(--spacing-md);
+
+  @media (min-width: 375px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.foundPodcast {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  max-width: 128px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  box-shadow: 0 0 5px 0px var(--c-shadow);
+  position: relative;
+  transition: opacity var(--transition-duration) var(--transition-fn);
+
+  &:focus-within {
+    outline: auto;
+  }
+
+  &:disabled {
+    &:not(&.isAddPodcastPending) {
+      opacity: 0.5;
+    }
+  }
+
+  &:not(&:disabled) {
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+
+        & .addIcon {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &.isAddPodcastPending {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      color-mix(in srgb, var(--c-accent-secondary-bg) 100%, transparent 20%),
+      color-mix(in srgb, var(--c-accent-primary-bg) 100%, transparent 20%)
+    );
+    opacity: 0;
+    transition: opacity var(--transition-duration) var(--transition-fn);
+    z-index: var(--zi-1);
+  }
+
+  & .addIcon,
+  & .loaderWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: var(--zi-1);
+  }
+
+  & .addIcon {
+    opacity: 0;
+    transition: opacity var(--transition-duration) var(--transition-fn);
+  }
+
+  & .loaderWrapper {
+    color: var(--c-black);
+  }
+}

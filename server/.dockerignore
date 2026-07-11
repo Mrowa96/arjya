@@ -1,0 +1,14 @@
+assets/
+data/
+db/
+temp/
+node_modules/
+.dockerignore
+.env
+.env.example
+.gitignore
+.nvmrc
+compose.yml
+Dockerfile
+README.md
+tsconfig.tsbuildinfo

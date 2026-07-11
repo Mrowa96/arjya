@@ -1,0 +1,11 @@
+.storybook/
+dist/
+node_modules/
+./src/_generated/Api.ts
+.dockerignore
+.gitignore
+.nvmrc
+compose.yml
+Dockerfile
+esline.config.js
+README.md

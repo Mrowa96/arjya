@@ -1,0 +1,51 @@
+.button {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: background var(--transition-duration) var(--transition-fn);
+  cursor: pointer;
+
+  &.isRound {
+    flex: 0 0 auto;
+    aspect-ratio: 1/1;
+    border-radius: var(--radius-full);
+    padding: 0;
+  }
+
+  &.small {
+    height: 32px;
+  }
+
+  &.medium {
+    height: 40px;
+  }
+
+  &.primary {
+    border: none;
+    background: var(--c-accent-primary-bg);
+    color: var(--c-accent-primary-text);
+  }
+
+  &.danger {
+    border: none;
+    background: var(--c-accent-danger-bg);
+    color: var(--c-accent-danger-text);
+  }
+
+  &.ghost {
+    border: 1px solid var(--c-white);
+    background: transparent;
+    color: var(--c-white);
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    background: color-mix(in srgb, var(--c-grey), transparent 20%);
+  }
+}

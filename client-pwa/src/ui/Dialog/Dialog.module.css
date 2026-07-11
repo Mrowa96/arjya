@@ -1,0 +1,89 @@
+.backdrop {
+  position: fixed;
+  height: 100dvh;
+  inset: 0;
+  background: var(--c-black);
+  opacity: 0.3;
+  transition: opacity var(--transition-duarion) var(--transition-fn);
+
+  /* iOS 26+: Ensure the backdrop covers the entire visible viewport. */
+  @supports (-webkit-touch-callout: none) {
+    position: absolute;
+  }
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+  }
+}
+
+.popup {
+  display: flex;
+  flex-flow: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 300px;
+  min-height: 200px;
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--c-bg);
+  color: var(--text);
+  box-shadow: 0 0 10px 10px var(--c-shadow);
+  border-radius: var(--radius-md);
+  transition:
+    transform var(--transition-duarion) var(--transition-fn),
+    opacity var(--transition-duarion) var(--transition-fn);
+  overflow-y: auto;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  &.small {
+    max-width: 90dvw;
+    max-height: 90dvh;
+
+    @media (min-width: 768px) {
+      max-width: 300px;
+      max-height: 400px;
+    }
+  }
+
+  &.medium {
+    max-width: 90dvw;
+    max-height: 90dvh;
+
+    @media (min-width: 768px) {
+      max-width: 500px;
+      max-height: 600px;
+    }
+  }
+
+  &.large {
+    max-width: 90dvw;
+    max-height: 90dvh;
+
+    @media (min-width: 768px) {
+      max-width: 600px;
+      max-height: 700px;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+.content {
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+  padding-block-start: var(--spacing-md);
+}

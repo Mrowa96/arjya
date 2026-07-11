@@ -1,0 +1,32 @@
+@keyframes rotate {
+  from {
+    rotate: 0;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+.loader {
+  animation: rotate 1s linear infinite;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  &.small {
+    min-height: 100px;
+  }
+
+  &.medium {
+    min-height: 250px;
+  }
+
+  &.large {
+    min-height: 400px;
+  }
+}

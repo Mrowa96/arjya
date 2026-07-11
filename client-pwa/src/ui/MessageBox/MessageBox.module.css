@@ -1,0 +1,27 @@
+.messageBox {
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  margin-block-start: var(--spacing-md);
+
+  &.warning {
+    background: var(--c-accent-warning-bg);
+    color: var(--c-accent-warning-text);
+  }
+
+  &.error {
+    background: var(--c-accent-danger-bg);
+    color: var(--c-accent-danger-text);
+  }
+
+  &.success {
+    background: var(--c-accent-success-bg);
+    color: var(--c-accent-success-text);
+  }
+
+  &.info {
+    background: var(--c-bg);
+    color: var(--c-text);
+    border-color: var(--c-border);
+  }
+}

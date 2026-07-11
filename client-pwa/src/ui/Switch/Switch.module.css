@@ -1,0 +1,73 @@
+.switchControl {
+  --switch-width: 60px;
+  --switch-height: 30px;
+  --switch-border-width: 1px;
+  --pill-size: 22px;
+  --pill-offset: 3px;
+
+  display: inline-flex;
+  flex-flow: column;
+  gap: var(--spacing-xs);
+}
+
+.switchInnerControl {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+}
+
+.nativeSwitch {
+  appearance: none;
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  position: absolute;
+
+  &:checked + .switch {
+    background: linear-gradient(45deg, var(--c-accent-secondary-bg), var(--c-accent-primary-bg));
+    border-color: var(--c-accent-primary-bg-darker);
+
+    &::before {
+      transform: translate(
+        calc(
+          var(--switch-width) - var(--pill-size) - var(--switch-border-width) * 2 -
+            var(--pill-offset) * 2
+        ),
+        -50%
+      );
+    }
+  }
+
+  &:focus-visible + .switch {
+    outline: auto;
+  }
+}
+
+.switch {
+  display: flex;
+  width: var(--switch-width);
+  height: var(--switch-height);
+  aspect-ratio: 2/1;
+  border-radius: var(--radius-lg);
+  border: var(--switch-border-width) solid var(--c-border);
+  background: var(--c-grey-light);
+  cursor: pointer;
+  position: relative;
+  transition:
+    background var(--transition-duration) var(--transition-fn),
+    border-color var(--transition-duration) var(--transition-fn);
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: var(--pill-size);
+    aspect-ratio: 1/1;
+    background: var(--c-white);
+    border-radius: var(--radius-full);
+    top: 50%;
+    left: var(--pill-offset);
+    transform: translate(0, -50%);
+    transition: transform var(--transition-duration) var(--transition-fn);
+  }
+}

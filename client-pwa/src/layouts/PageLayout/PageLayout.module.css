@@ -1,0 +1,6 @@
+.pageLayout {
+  padding-block-start: var(--spacing-md);
+  padding-block-end: calc(
+    var(--mini-player-height) + var(--mini-player-offset) + var(--spacing-md)
+  );
+}

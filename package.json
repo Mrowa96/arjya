@@ -1,0 +1,27 @@
+{
+  "name": "arjya",
+  "version": "0.0.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "engines": {
+    "node": ">=24.18.0",
+    "npm": ">=11.13.0"
+  },
+  "engineStrict": true,
+  "scripts": {
+    "prepare": "husky",
+    "dev": "concurrently --names s,c -c red,blue \"npm:dev:server\" \"npm:dev:client-pwa\"",
+    "dev:client-pwa": "npm run dev --prefix client-pwa",
+    "dev:server": "npm run dev --prefix server",
+    "fmt": "prettier -w \"**/*.{js,cjs,mjs,ts,tsx,json,md,yml}\"",
+    "check:fmt": "prettier -c \"**/*.{js,cjs,mjs,ts,tsx,json,md,yml}\"",
+    "check": "concurrently --names s,c1,c2 -c red,blue,blue \"npm run check:types --prefix server\" \"npm run check:types --prefix client-pwa\" \"npm run check:lint --prefix client-pwa\""
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "6.0.2",
+    "concurrently": "10.0.3",
+    "husky": "9.1.7",
+    "prettier": "3.9.5"
+  }
+}

@@ -1,0 +1,11 @@
+.addPodcastForm {
+  display: flex;
+  flex-flow: column;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}

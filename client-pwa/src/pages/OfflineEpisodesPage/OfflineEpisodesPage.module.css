@@ -1,0 +1,6 @@
+.content,
+.section {
+  display: flex;
+  flex-flow: column;
+  gap: var(--spacing-md);
+}

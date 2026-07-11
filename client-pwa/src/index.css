@@ -1,0 +1,139 @@
+@import 'modern-normalize/modern-normalize.css';
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/opensans.woff2');
+}
+
+:root {
+  /* Design system variables */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 32px;
+  --radius-xxl: 64px;
+  --radius-full: 100%;
+
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  --transition-duration: 0.3s;
+  --transition-fn: ease-in-out;
+
+  --c-white: #fff;
+  --c-black: #000;
+  --c-grey-lightest: #eeeeee;
+  --c-grey-light: #ccc;
+  --c-grey: #bdbdbd;
+  --c-grey-dark: #757575;
+  --c-pink: #fa697c;
+  --c-pink-darker: #e05e70;
+  --c-pink-dark: #956381;
+  --c-purple: #9b45e4;
+  --c-blue: #456fe4;
+  --c-orange: #fcc169;
+  --c-orange-darker: #e9b362;
+  --c-red: #d34545;
+  --c-green: #62c351;
+
+  --c-bg: var(--c-white);
+  --c-border: var(--c-grey);
+  --c-shadow: color-mix(in srgb, var(--c-black) 10%, transparent);
+
+  --c-text: var(--c-black);
+  --c-text-danger: var(--c-red);
+
+  --c-accent-primary-bg: var(--c-pink);
+  --c-accent-primary-bg-darker: var(--c-pink-darker);
+  --c-accent-primary-text: var(--c-white);
+
+  --c-accent-secondary-bg: var(--c-orange);
+  --c-accent-secondary-bg-darker: var(--c-orange-darker);
+  --c-accent-secondary-text: var(--c-black);
+
+  --c-accent-warning-bg: var(--c-orange);
+  --c-accent-warning-text: var(--c-black);
+
+  --c-accent-danger-bg: var(--c-red);
+  --c-accent-danger-text: var(--c-white);
+
+  --c-accent-success-bg: var(--c-green);
+  --c-accent-success-text: var(--c-black);
+
+  --zi-negative: -1;
+  --zi-0: 0;
+  --zi-1: 1;
+  --zi-2: 2;
+  --zi-3: 3;
+
+  --blur: 10px;
+
+  /* Components variables which needs to be global */
+  --mini-player-height: 110px;
+  --mini-player-offset: var(--spacing-sm);
+
+  @media (min-width: 768px) {
+    --mini-player-height: 120px;
+    --mini-player-offset: var(--spacing-md);
+  }
+}
+
+html,
+body {
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+  line-height: 1.2;
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+}
+
+.line-clamp-1,
+.line-clamp-2,
+.line-clamp-3,
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-1 {
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  -webkit-line-clamp: 3;
+}
+
+.line-clamp-4 {
+  -webkit-line-clamp: 4;
+}
+
+a {
+  color: var(--c-text);
+}
+
+.font-open-sans {
+  font-family: 'Open Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}
+
+#root {
+  min-height: 100%;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  isolation: isolate;
+}

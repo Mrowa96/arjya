@@ -1,0 +1,111 @@
+.episodeCardSkeletonWrapper {
+  display: block;
+  list-style: none;
+}
+
+.episodeCardSkeleton {
+  width: 100%;
+  height: 55px;
+}
+
+.episodeCard {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  list-style: none;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 4px 1px var(--c-shadow);
+  position: relative;
+  overflow: hidden;
+
+  &.isStreamCompleted {
+    opacity: 0.6;
+  }
+}
+
+.playbackButtonWrapper {
+  position: relative;
+}
+
+.isDownloadedIcon,
+.isLocalIcon {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  aspect-ratio: 1/1;
+  border-radius: var(--radius-full);
+
+  & > svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.isDownloadedIcon {
+  background: var(--c-accent-secondary-bg);
+
+  & > svg {
+    fill: var(--c-accent-secondary-text);
+  }
+}
+
+.isLocalIcon {
+  background: var(--c-blue);
+
+  & > svg {
+    fill: var(--c-white);
+  }
+}
+
+.content {
+  display: flex;
+  flex-flow: column;
+  gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: flex-start;
+  flex: 0 0 100%;
+}
+
+.titleLink {
+  text-decoration: none;
+}
+
+.details {
+  display: flex;
+  flex: 0 0 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+}
+
+.playbackProgress {
+  width: 120px;
+
+  @media (min-width: 768px) {
+    width: 200px;
+  }
+}
+
+.publishedAt {
+  @media (min-width: 768px) {
+    margin-inline-start: auto;
+  }
+}
+
+.localEpisode {
+  & .header {
+    flex-flow: column;
+  }
+}

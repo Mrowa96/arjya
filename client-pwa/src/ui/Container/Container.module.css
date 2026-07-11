@@ -1,0 +1,23 @@
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1024px;
+
+  &.hasHorizontalPadding {
+    padding-inline: var(--spacing-md);
+  }
+
+  &.hasVerticalPadding {
+    padding-block: var(--spacing-md);
+  }
+
+  &.strech {
+    flex: 1;
+  }
+
+  &.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

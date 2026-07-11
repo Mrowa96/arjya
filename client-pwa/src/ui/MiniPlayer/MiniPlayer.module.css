@@ -1,0 +1,128 @@
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 100%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.miniPlayer {
+  position: fixed;
+  bottom: var(--mini-player-offset);
+  left: 50%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: var(--spacing-sm);
+  align-items: center;
+  justify-content: space-between;
+  width: 96dvw;
+  height: var(--mini-player-height);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--c-bg) 100%, transparent 60%);
+  backdrop-filter: blur(var(--blur));
+  box-shadow: 0 2px 10px -2px var(--c-shadow);
+  animation: slide-up var(--transition-duration) var(--transition-fn) both;
+
+  @media (min-width: 768px) {
+    border-radius: var(--radius-xxl);
+    padding: var(--spacing-md) var(--spacing-xl);
+  }
+
+  @media (min-width: 1024px) {
+    width: 80dvw;
+  }
+
+  &.delayAnimation {
+    animation-delay: 1s;
+  }
+}
+
+.details {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+  grid-column: 1 / 4;
+  grid-row: 1/2;
+
+  @media (min-width: 768px) {
+    grid-column: 1 / 6;
+  }
+
+  & .summary {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: flex;
+      flex-flow: column;
+      gap: var(--spacing-sm);
+    }
+
+    & .subtitleAsLink,
+    & .titleAsLink {
+      text-decoration: none;
+    }
+  }
+
+  & .thumbnailWrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-md);
+    flex: 0 0 48px;
+    overflow: hidden;
+  }
+
+  & .thumbnail {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+.controlsWrapper {
+  grid-column: 4 / 10;
+  grid-row: 1/2;
+
+  @media (min-width: 768px) {
+    grid-column: 6 / 8;
+  }
+}
+
+.duration {
+  grid-column: 10 / 13;
+  grid-row: 1/2;
+  text-align: right;
+
+  @media (min-width: 768px) {
+    grid-column: 8 / 13;
+  }
+
+  & .durationText {
+    display: none;
+    color: var(--c-grey-dark);
+
+    @media (min-width: 375px) {
+      display: flex;
+      flex-flow: column;
+    }
+  }
+}
+
+.progress {
+  display: flex;
+  flex-flow: column;
+  align-items: end;
+  gap: var(--spacing-xs);
+  grid-row: 2/3;
+  grid-column: 3/11;
+
+  @media (min-width: 768px) {
+    grid-column: 2/12;
+  }
+}

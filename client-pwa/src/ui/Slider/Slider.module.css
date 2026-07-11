@@ -1,0 +1,38 @@
+.root {
+  width: 100%;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  user-select: none;
+  cursor: pointer;
+}
+
+.track {
+  width: 100%;
+  height: 10px;
+  background-color: var(--c-white);
+  box-shadow: 0 0 3px 0px var(--c-shadow);
+  border-radius: var(--radius-md);
+  user-select: none;
+}
+
+.indicator {
+  background: linear-gradient(45deg, var(--c-accent-secondary-bg), var(--c-accent-primary-bg));
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  user-select: none;
+}
+
+.thumb {
+  width: 20px;
+  aspect-ratio: 1/1;
+  background: var(--c-accent-primary-bg);
+  border-radius: var(--radius-full);
+  user-select: none;
+
+  &:has(:focus-visible) {
+    outline: auto;
+  }
+}

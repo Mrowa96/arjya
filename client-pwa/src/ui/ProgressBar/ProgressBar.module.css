@@ -1,0 +1,32 @@
+.progressBar {
+  appearance: none;
+  block-size: 10px;
+  width: 100%;
+
+  @supports (-moz-appearance: none) {
+    background-color: var(--c-white);
+    border: 1px solid var(--c-grey-lightest);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    block-size: 10px;
+  }
+
+  &::-webkit-progress-bar {
+    background-color: var(--c-white);
+    border: 1px solid var(--c-grey-lightest);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  &::-webkit-progress-value {
+    background-color: var(--c-grey);
+  }
+
+  &::-moz-progress-bar {
+    background-color: var(--c-grey);
+  }
+
+  &.disabled {
+    opacity: 0.3;
+  }
+}
