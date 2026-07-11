@@ -1,8 +1,10 @@
 # arjya
 
-Arjya is your personal stream of podcasts. Project is and always will be open sourced.
+Arjya is your personal stream of podcasts.
 
-It allows you to listen to your favourite podcasts without proprietary streaming services from any device.
+**Original source code is hosted on [Codeberg](https://codeberg.org/Mrowa96/arjya).**
+
+Project allows you to listen to your favourite podcasts without proprietary streaming services from any device.
 
 If you like my work, consider buying me a coffee!
 
@@ -24,7 +26,7 @@ If you like my work, consider buying me a coffee!
 - TBD: Supports light/dark mode
 - TBD: Gives you ability to setup transcoding for lower data usage
 - TBD: It's available in many langauges
-- Tell me what you would like to see!
+- Tell me what you would like to see! Open [new issue](https://codeberg.org/Mrowa96/arjya/issues/new)
 
 ## Screenshots
 
