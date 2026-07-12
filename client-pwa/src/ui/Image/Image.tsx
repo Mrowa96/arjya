@@ -33,7 +33,7 @@ function UnmemoizedImage({ src, width, height, alt, className }: Props) {
     >
       {!src || status === 'failed' ? (
         <div className={styles.emptyImage}>
-          <RiImageLine />
+          <RiImageLine size={width / 5} />
         </div>
       ) : (
         <>

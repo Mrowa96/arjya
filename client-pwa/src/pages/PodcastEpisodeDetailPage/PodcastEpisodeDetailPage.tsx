@@ -12,6 +12,7 @@ import { Image } from '../../ui/Image/Image';
 import { Skeleton } from '../../ui/Skeleton/Skeleton';
 import { Text } from '../../ui/Text/Text';
 import { tryCatch } from '../../utils/tryCatch';
+import { PlaybackTrigger } from './components/PlaybackTrigger/PlaybackTrigger';
 
 import styles from './PodcastEpisodeDetailPage.module.css';
 
@@ -142,15 +143,17 @@ export default function PodcastEpisodeDetailPage() {
       ]}
     >
       <div className={styles.details}>
-        {!!episode.thumbnailUrl && (
+        <div className={styles.imageWrapper}>
           <Image
             className={styles.image}
-            src={episode.thumbnailUrl}
+            src={episode.thumbnailUrl || undefined}
             alt={episode.title}
             width={500}
             height={500}
           />
-        )}
+
+          <PlaybackTrigger episode={episode} />
+        </div>
         <div className={styles.content}>
           {episode.description && (
             <div

@@ -1,0 +1,14 @@
+.playbackTrigger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  aspect-ratio: 1/1;
+  position: absolute;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--c-bg) 100%, transparent 60%);
+  backdrop-filter: blur(var(--blur));
+  box-shadow: 0 2px 10px -2px var(--c-shadow);
+}

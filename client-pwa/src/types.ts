@@ -9,3 +9,5 @@ export type LocalEpisode = ApiPodcastDetailData['episodes'][number] & {
   blob: Blob;
   thumbnail: Blob | null;
 };
+
+export type Episode = CloudEpisode | LocalEpisode;

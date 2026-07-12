@@ -10,7 +10,7 @@ import styles from './PlaybackControl.module.css';
 
 export function PlaybackControl() {
   const { isPlaying, isLoading, isFailed, source } = useAudioPlayerData();
-  const { play, pause, seek } = useAudioPlayerActions();
+  const { play, seek } = useAudioPlayerActions();
 
   const showSeekButtons = !!source && !isFailed && !isLoading;
 
@@ -28,13 +28,7 @@ export function PlaybackControl() {
         <Button icon={<RiReplay10Line size={18} />} size="small" onClick={seekBackward} isRound />
       )}
 
-      <PlaybackButton
-        isPlaying={isPlaying}
-        isLoading={isLoading}
-        isFailed={isFailed}
-        play={play}
-        pause={pause}
-      />
+      <PlaybackButton isPlaying={isPlaying} isLoading={isLoading} isFailed={isFailed} play={play} />
 
       {showSeekButtons && (
         <Button icon={<RiForward10Line size={18} />} size="small" onClick={seekForward} isRound />

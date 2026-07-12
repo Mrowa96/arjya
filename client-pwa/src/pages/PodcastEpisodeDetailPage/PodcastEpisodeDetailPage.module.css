@@ -10,6 +10,12 @@ content {
   gap: var(--spacing-lg);
 }
 
+.imageWrapper {
+  position: relative;
+  max-width: 500px;
+  margin: auto;
+}
+
 .image,
 .imageSkeleton {
   aspect-ratio: 1 / 1;
@@ -21,7 +27,6 @@ content {
 .imageSkeleton {
   width: 100%;
   height: auto;
-  max-width: 500px;
 }
 
 .description {
